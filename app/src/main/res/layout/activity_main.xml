@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity"
+        android:background="@color/darkBG">
+
+    <TextView
+            android:layout_width="342dp"
+            android:layout_height="100dp"
+            android:text="Hello World"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" android:textSize="45sp" android:id="@+id/textView"
+            app:layout_constraintVertical_bias="0.408"
+            android:gravity="center" app:layout_constraintHorizontal_bias="0.498"/>
+
+    <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animation_view"
+            android:layout_width="150dp"
+            android:layout_height="132dp"
+            app:lottie_rawRes="@raw/incoming_call"
+            app:lottie_loop="true"
+            app:lottie_autoPlay="true"
+            app:layout_constraintEnd_toStartOf="@+id/swipe_btn"
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="40dp"/>
+
+    <com.ebanx.swipebtn.SwipeButton
+            android:id="@+id/swipe_btn"
+            android:layout_width="363dp"
+            android:layout_height="84dp"
+            android:layout_marginStart="184dp"
+            app:inner_text="REPONDRE"
+            app:inner_text_color="@android:color/white"
+            app:inner_text_size="16sp"
+            app:inner_text_top_padding="18dp"
+            app:inner_text_bottom_padding="18dp"
+            app:inner_text_background="@drawable/shape_rounded"
+            app:button_image_height="60dp"
+            app:button_image_width="100dp"
+            app:button_image_disabled="@drawable/phone"
+            app:button_image_enabled="@drawable/phone"
+            app:button_left_padding="20dp"
+            app:button_right_padding="20dp"
+            app:button_top_padding="20dp"
+            app:button_bottom_padding="20dp"
+            app:button_background="@drawable/shape_button"
+            app:initial_state="disabled"
+            app:has_activate_state="true"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="184dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="60dp"/>
+
+    <VideoView
+            android:layout_height="0dp"
+            android:id="@+id/videoView" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="0dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
