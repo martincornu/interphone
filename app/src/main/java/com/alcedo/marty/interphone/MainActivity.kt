@@ -55,6 +55,9 @@ class MainActivity : AppCompatActivity() {
                 enableButton.setVisibility(INVISIBLE)
                 mediaPlayer?.reset()
                 mediaPlayer?.release()
+                vid.setVisibility(VISIBLE)
+                vid.start()
+
             }
         }
 
