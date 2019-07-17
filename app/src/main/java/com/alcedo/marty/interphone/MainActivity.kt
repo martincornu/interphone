@@ -24,6 +24,9 @@ import android.widget.VideoView
 import com.airbnb.lottie.LottieAnimationView
 import com.ebanx.swipebtn.OnStateChangeListener
 import com.ebanx.swipebtn.SwipeButton
+import android.media.MediaPlayer.OnCompletionListener
+
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -59,6 +62,10 @@ class MainActivity : AppCompatActivity() {
                 vid.start()
 
             }
+        }
+
+        vid.setOnCompletionListener {
+            vid.setVisibility(INVISIBLE)
         }
 
         Handler().postDelayed({
