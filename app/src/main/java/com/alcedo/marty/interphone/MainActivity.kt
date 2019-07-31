@@ -3,11 +3,7 @@ package com.alcedo.marty.interphone
 import android.app.ActivityOptions
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.WindowManager
-import android.view.MotionEvent
-import android.view.ViewGroup
 import android.graphics.PixelFormat
-import android.view.Gravity
 import android.app.Activity
 import android.content.Context
 import android.content.Context.WINDOW_SERVICE
@@ -25,6 +21,7 @@ import com.airbnb.lottie.LottieAnimationView
 import com.ebanx.swipebtn.OnStateChangeListener
 import com.ebanx.swipebtn.SwipeButton
 import android.media.MediaPlayer.OnCompletionListener
+import android.view.*
 import java.lang.Compiler.enable
 
 
