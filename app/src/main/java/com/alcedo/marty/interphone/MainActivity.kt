@@ -39,6 +39,8 @@ class MainActivity : AppCompatActivity() {
 
         //init
         cpt = 0
+        // Hide the status bar.
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
 
         //audio
         val mediaPlayer: MediaPlayer? = MediaPlayer.create(this, R.raw.ring)
