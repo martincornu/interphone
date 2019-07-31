@@ -47,9 +47,8 @@ class MainActivity : AppCompatActivity() {
         val mediaPlayer: MediaPlayer? = MediaPlayer.create(this, R.raw.ring)
 
         //video
-        val m = MediaController(this)
         val vid = findViewById(R.id.videoView) as VideoView
-        vid.setMediaController(m)
+        vid.setMediaController(null)
         var path = ""
         var u = Uri.parse(path)
         vid.setVideoURI(u)
