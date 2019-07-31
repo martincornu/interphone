@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         val m = MediaController(this)
         val vid = findViewById(R.id.videoView) as VideoView
         vid.setMediaController(m)
-        val path = "android.resource://com.alcedo.marty.interphone/"+R.raw.boxe
+        val path = "android.resource://com.alcedo.marty.interphone/"+R.raw.fetedetrop1
         val u = Uri.parse(path)
         vid.setVideoURI(u)
         vid.setVisibility(INVISIBLE)
