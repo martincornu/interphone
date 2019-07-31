@@ -25,6 +25,9 @@ import com.airbnb.lottie.LottieAnimationView
 import com.ebanx.swipebtn.OnStateChangeListener
 import com.ebanx.swipebtn.SwipeButton
 import android.media.MediaPlayer.OnCompletionListener
+import java.lang.Compiler.enable
+
+
 
 
 
@@ -43,12 +46,11 @@ class MainActivity : AppCompatActivity() {
         //audio
         val mediaPlayer: MediaPlayer? = MediaPlayer.create(this, R.raw.ring)
 
-
         //video
         val m = MediaController(this)
         val vid = findViewById(R.id.videoView) as VideoView
         vid.setMediaController(m)
-        var path = "android.resource://com.alcedo.marty.interphone/"+R.raw.fetedetrop1
+        var path = ""
         var u = Uri.parse(path)
         vid.setVideoURI(u)
         vid.setVisibility(INVISIBLE)
@@ -59,24 +61,26 @@ class MainActivity : AppCompatActivity() {
         val animationButton= findViewById(R.id.animation_view) as LottieAnimationView
         animationButton.setVisibility(INVISIBLE)
 
+        //Answer call
         enableButton.setOnStateChangeListener { active ->
 
             if (active) {
                 animationButton.setVisibility(INVISIBLE)
                 enableButton.setVisibility(INVISIBLE)
                 mediaPlayer?.pause()
-                if (cpt == 0) {
-                    cpt++
-                    vid.setVisibility(VISIBLE)
-                    vid.start()
-                } else if (cpt == 1) {
-                    path = "android.resource://com.alcedo.marty.interphone/"+R.raw.fetedetrop2
-                    u = Uri.parse(path)
-                    vid.setVideoURI(u)
 
-                    vid.setVisibility(VISIBLE)
-                    vid.start()
+                when (cpt) {
+                    0 -> path = "android.resource://com.alcedo.marty.interphone/"+R.raw.fetedetrop1
+                    1 -> path = "android.resource://com.alcedo.marty.interphone/"+R.raw.fetedetrop2
+                    2 -> path = "android.resource://com.alcedo.marty.interphone/"+R.raw.fetedetrop3
+                    3 -> path = "android.resource://com.alcedo.marty.interphone/"+R.raw.fetedetrop4
+                    else -> print("out of bounds video index")
                 }
+                cpt++
+                u = Uri.parse(path)
+                vid.setVideoURI(u)
+                vid.setVisibility(VISIBLE)
+                vid.start()
                 enableButton.toggleState()
             }
         }
@@ -102,6 +106,24 @@ class MainActivity : AppCompatActivity() {
             animationButton.setVisibility(VISIBLE)
             enableButton.setVisibility(VISIBLE)
         }, 30000)
+
+        Handler().postDelayed({
+            //Do something after 100ms
+            //Icon ring animation appear with ring song
+            //Slider appear
+            mediaPlayer?.start()
+            animationButton.setVisibility(VISIBLE)
+            enableButton.setVisibility(VISIBLE)
+        }, 70000)
+
+        Handler().postDelayed({
+            //Do something after 100ms
+            //Icon ring animation appear with ring song
+            //Slider appear
+            mediaPlayer?.start()
+            animationButton.setVisibility(VISIBLE)
+            enableButton.setVisibility(VISIBLE)
+        }, 90000)
 
     }
 }
