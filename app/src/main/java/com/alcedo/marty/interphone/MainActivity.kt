@@ -130,6 +130,7 @@ class MainActivity : AppCompatActivity() {
         //My messages
         messagesButton.setOnClickListener {
             val intent = Intent(applicationContext, MessagesActivity::class.java)
+            intent.putExtra("MY_KEY", cpt)
             startActivity(intent)
         }
 

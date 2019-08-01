@@ -41,6 +41,7 @@
     <View
             android:layout_width="0dp"
             android:layout_height="2dp"
+            android:id="@+id/separator"
             android:background="@android:color/darker_gray"
             app:layout_constraintTop_toBottomOf="@+id/image"
             android:layout_marginTop="20dp" app:layout_constraintStart_toStartOf="parent"
@@ -80,6 +81,7 @@
     <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
+            android:id="@+id/separator2"
             android:background="@android:color/darker_gray"
             tools:layout_editor_absoluteX="0dp" app:layout_constraintTop_toBottomOf="@+id/image2"
             android:layout_marginTop="20dp"/>
