@@ -29,6 +29,7 @@ import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.BroadcastReceiver
 
+//Version 1 accel
 class MainActivity : AppCompatActivity() {
 
     private var cpt = 0
