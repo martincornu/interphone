@@ -1,5 +1,6 @@
 package com.alcedo.marty.interphone
 
+import android.app.Activity
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -58,6 +59,12 @@ class MessagesActivity : AppCompatActivity() {
         val playMessageButton2 = findViewById(R.id.playMessageButton2) as Button
         val playMessageButton3 = findViewById(R.id.playMessageButton3) as Button
         val playMessageButton4 = findViewById(R.id.playMessageButton4) as Button
+        val backButton = findViewById(R.id.backButton) as ImageButton
+
+        //Back button
+        backButton.setOnClickListener {
+            this.finish()
+        }
 
         //Hide and show UI
         fun hideUI() {
