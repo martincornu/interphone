@@ -128,14 +128,11 @@ class MessagesActivity : AppCompatActivity() {
         hideUI()
         showUI()
 
-
         // Hide the status bar.
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
 
         //video
-        val mediaController = MediaController(this)
-        mediaController.setAnchorView(vid)
-        vid.setMediaController(mediaController)
+        vid.setMediaController(null)
         var path = ""
         var u = Uri.parse(path)
         vid.setVideoURI(u)

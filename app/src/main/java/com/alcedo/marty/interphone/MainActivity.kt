@@ -15,24 +15,25 @@ import androidx.core.content.ContextCompat.getSystemService
 import android.util.Log
 import android.view.View.INVISIBLE
 import android.view.View.VISIBLE
-import android.widget.MediaController
-import android.widget.Toast
-import android.widget.VideoView
 import com.airbnb.lottie.LottieAnimationView
 import com.ebanx.swipebtn.OnStateChangeListener
 import com.ebanx.swipebtn.SwipeButton
 import android.media.MediaPlayer.OnCompletionListener
 import android.view.*
-import android.widget.ImageButton
 import java.lang.Compiler.enable
 import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.BroadcastReceiver
+import android.content.IntentFilter
+import android.widget.*
 
-//Version 1
+//Version 2
 class MainActivity : AppCompatActivity() {
 
+    private var counter = 0
     private var cpt = 0
+    private var counterText : TextView? = null
+    private var minuteUpdateReceiver : BroadcastReceiver? = null
 
     private fun hideSystemUI() {
         // Enables regular immersive mode.
@@ -60,6 +61,7 @@ class MainActivity : AppCompatActivity() {
 
         //init
         cpt = 0
+        counterText = findViewById(R.id.txt_time)
 
         //audio
         val mediaPlayer: MediaPlayer? = MediaPlayer.create(this, R.raw.ring)
@@ -155,5 +157,33 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+    }
+
+    //Update minutes for time
+    fun startMinuteUpdater() {
+        var intentFilter = IntentFilter()
+        intentFilter.addAction(Intent.ACTION_TIME_TICK)
+        minuteUpdateReceiver = object : BroadcastReceiver() {
+            override fun onReceive(contxt: Context?, intent: Intent?) {
+                counter++
+                if (counter < 10)
+                    counterText?.setText("08:0" + counter)
+                else if (counter >= 10 && counter < 60)
+                    counterText?.setText("08:" + counter)
+                else if (counter >= 60)
+                    counter = 0
+            }
+        }
+        registerReceiver(minuteUpdateReceiver, intentFilter)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        startMinuteUpdater()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        unregisterReceiver(minuteUpdateReceiver)
     }
 }
