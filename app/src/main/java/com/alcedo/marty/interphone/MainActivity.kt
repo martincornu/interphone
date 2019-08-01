@@ -46,6 +46,7 @@ class MainActivity : AppCompatActivity() {
 
         //audio
         val mediaPlayer: MediaPlayer? = MediaPlayer.create(this, R.raw.ring)
+        mediaPlayer?.setLooping(true)
 
         //video
         val vid = findViewById(R.id.videoView) as VideoView
