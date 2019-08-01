@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.MediaController
 import android.widget.VideoView
 import com.ebanx.swipebtn.SwipeButton
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MessagesActivity : AppCompatActivity() {
 
@@ -16,6 +18,9 @@ class MessagesActivity : AppCompatActivity() {
 
         //video
         val vid = findViewById(R.id.videoView2) as VideoView
+        val mediaController = MediaController(this)
+        mediaController.setAnchorView(vid)
+        vid.setMediaController(mediaController)
         var path = ""
         var u = Uri.parse(path)
         vid.setVideoURI(u)
