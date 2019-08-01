@@ -118,7 +118,7 @@ class MainActivity : AppCompatActivity() {
             mediaPlayer?.start()
             animationButton.setVisibility(VISIBLE)
             enableButton.setVisibility(VISIBLE)
-        }, 900000)
+        }, 900000) //900000
 
         //Call at 30min
         Handler().postDelayed({
@@ -128,7 +128,7 @@ class MainActivity : AppCompatActivity() {
             mediaPlayer?.start()
             animationButton.setVisibility(VISIBLE)
             enableButton.setVisibility(VISIBLE)
-        }, 1800000)
+        }, 1800000) //1800000
 
         //Call at 45min
         Handler().postDelayed({
@@ -138,7 +138,7 @@ class MainActivity : AppCompatActivity() {
             mediaPlayer?.start()
             animationButton.setVisibility(VISIBLE)
             enableButton.setVisibility(VISIBLE)
-        }, 2700000)
+        }, 2700000) //2700000
 
         //Call at 55min
         Handler().postDelayed({
@@ -148,7 +148,7 @@ class MainActivity : AppCompatActivity() {
             mediaPlayer?.start()
             animationButton.setVisibility(VISIBLE)
             enableButton.setVisibility(VISIBLE)
-        }, 3300000)
+        }, 3300000) //3300000
 
         //My messages
         messagesButton.setOnClickListener {
