@@ -7,6 +7,7 @@ import android.graphics.PixelFormat
 import android.app.Activity
 import android.content.Context
 import android.content.Context.WINDOW_SERVICE
+import android.content.Intent
 import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Handler
@@ -22,6 +23,7 @@ import com.ebanx.swipebtn.OnStateChangeListener
 import com.ebanx.swipebtn.SwipeButton
 import android.media.MediaPlayer.OnCompletionListener
 import android.view.*
+import android.widget.ImageButton
 import java.lang.Compiler.enable
 
 
@@ -58,8 +60,9 @@ class MainActivity : AppCompatActivity() {
         enableButton.setVisibility(INVISIBLE)
         val animationButton= findViewById(R.id.animation_view) as LottieAnimationView
         animationButton.setVisibility(INVISIBLE)
+        val messagesButton = findViewById(R.id.imageBtn) as ImageButton
 
-        //Answer call
+        //Calls
         enableButton.setOnStateChangeListener { active ->
 
             if (active) {
@@ -122,6 +125,12 @@ class MainActivity : AppCompatActivity() {
             animationButton.setVisibility(VISIBLE)
             enableButton.setVisibility(VISIBLE)
         }, 90000)
+
+        //My messages
+        messagesButton.setOnClickListener {
+            val intent = Intent(applicationContext, MessagesActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 }
