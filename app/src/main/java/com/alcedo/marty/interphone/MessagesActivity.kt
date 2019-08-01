@@ -148,6 +148,8 @@ class MessagesActivity : AppCompatActivity() {
         playMessageButton1.setOnClickListener {
             playMessageButton1.setVisibility(View.INVISIBLE)
             playMessageButton2.setVisibility(View.INVISIBLE)
+            playMessageButton3.setVisibility(View.INVISIBLE)
+            playMessageButton4.setVisibility(View.INVISIBLE)
             path = "android.resource://com.alcedo.marty.interphone/"+R.raw.fetedetrop1
             u = Uri.parse(path)
             vid.setVideoURI(u)
@@ -158,7 +160,33 @@ class MessagesActivity : AppCompatActivity() {
         playMessageButton2.setOnClickListener {
             playMessageButton1.setVisibility(View.INVISIBLE)
             playMessageButton2.setVisibility(View.INVISIBLE)
+            playMessageButton3.setVisibility(View.INVISIBLE)
+            playMessageButton4.setVisibility(View.INVISIBLE)
             path = "android.resource://com.alcedo.marty.interphone/"+R.raw.fetedetrop2
+            u = Uri.parse(path)
+            vid.setVideoURI(u)
+            vid.setVisibility(View.VISIBLE)
+            vid.start()
+        }
+
+        playMessageButton3.setOnClickListener {
+            playMessageButton1.setVisibility(View.INVISIBLE)
+            playMessageButton2.setVisibility(View.INVISIBLE)
+            playMessageButton3.setVisibility(View.INVISIBLE)
+            playMessageButton4.setVisibility(View.INVISIBLE)
+            path = "android.resource://com.alcedo.marty.interphone/"+R.raw.fetedetrop3
+            u = Uri.parse(path)
+            vid.setVideoURI(u)
+            vid.setVisibility(View.VISIBLE)
+            vid.start()
+        }
+
+        playMessageButton4.setOnClickListener {
+            playMessageButton1.setVisibility(View.INVISIBLE)
+            playMessageButton2.setVisibility(View.INVISIBLE)
+            playMessageButton3.setVisibility(View.INVISIBLE)
+            playMessageButton4.setVisibility(View.INVISIBLE)
+            path = "android.resource://com.alcedo.marty.interphone/"+R.raw.fetedetrop4
             u = Uri.parse(path)
             vid.setVideoURI(u)
             vid.setVisibility(View.VISIBLE)
