@@ -20,14 +20,24 @@ class MessagesActivity : AppCompatActivity() {
         val vid = findViewById(R.id.videoView2) as VideoView
         val image = findViewById(R.id.image) as ImageView
         val image2 = findViewById(R.id.image2) as ImageView
+        val image3 = findViewById(R.id.image3) as ImageView
+        val image4 = findViewById(R.id.image4) as ImageView
         val title = findViewById(R.id.textView) as TextView
         val title2 = findViewById(R.id.textView3) as TextView
+        val title3 = findViewById(R.id.textView5) as TextView
+        val title4 = findViewById(R.id.textView7) as TextView
         val duration = findViewById(R.id.textView2) as TextView
         val duration2 = findViewById(R.id.textView4) as TextView
+        val duration3 = findViewById(R.id.textView6) as TextView
+        val duration4 = findViewById(R.id.textView8) as TextView
         val separator = findViewById(R.id.separator) as View
         val separator2 = findViewById(R.id.separator2) as View
+        val separator3 = findViewById(R.id.separator3) as View
+        val separator4 = findViewById(R.id.separator4) as View
         val playMessageButton1 = findViewById(R.id.playMessageButton1) as Button
         val playMessageButton2 = findViewById(R.id.playMessageButton2) as Button
+        val playMessageButton3 = findViewById(R.id.playMessageButton3) as Button
+        val playMessageButton4 = findViewById(R.id.playMessageButton4) as Button
 
         //Hide and show UI
         fun hideUI() {
@@ -43,6 +53,18 @@ class MessagesActivity : AppCompatActivity() {
             duration2.setVisibility(View.INVISIBLE)
             playMessageButton2.setVisibility(View.INVISIBLE)
             separator2.setVisibility(View.INVISIBLE)
+            //block3
+            image3.setVisibility(View.INVISIBLE)
+            title3.setVisibility(View.INVISIBLE)
+            duration3.setVisibility(View.INVISIBLE)
+            playMessageButton3.setVisibility(View.INVISIBLE)
+            separator3.setVisibility(View.INVISIBLE)
+            //block4
+            image4.setVisibility(View.INVISIBLE)
+            title4.setVisibility(View.INVISIBLE)
+            duration4.setVisibility(View.INVISIBLE)
+            playMessageButton4.setVisibility(View.INVISIBLE)
+            separator4.setVisibility(View.INVISIBLE)
         }
 
         fun showUI() {
@@ -59,6 +81,20 @@ class MessagesActivity : AppCompatActivity() {
                 duration2.setVisibility(View.VISIBLE)
                 playMessageButton2.setVisibility(View.VISIBLE)
                 separator2.setVisibility(View.VISIBLE)
+            }
+            if (cpt >= 3) {
+                image3.setVisibility(View.VISIBLE)
+                title3.setVisibility(View.VISIBLE)
+                duration3.setVisibility(View.VISIBLE)
+                playMessageButton3.setVisibility(View.VISIBLE)
+                separator3.setVisibility(View.VISIBLE)
+            }
+            if (cpt >= 4) {
+                image4.setVisibility(View.VISIBLE)
+                title4.setVisibility(View.VISIBLE)
+                duration4.setVisibility(View.VISIBLE)
+                playMessageButton4.setVisibility(View.VISIBLE)
+                separator4.setVisibility(View.VISIBLE)
             }
         }
 
