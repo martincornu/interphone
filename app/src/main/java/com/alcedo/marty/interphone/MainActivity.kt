@@ -25,11 +25,9 @@ import android.media.MediaPlayer.OnCompletionListener
 import android.view.*
 import android.widget.ImageButton
 import java.lang.Compiler.enable
-
-
-
-
-
+import android.app.AlarmManager
+import android.app.PendingIntent
+import android.content.BroadcastReceiver
 
 class MainActivity : AppCompatActivity() {
 
