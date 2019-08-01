@@ -29,7 +29,7 @@ import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.BroadcastReceiver
 
-//Version 1 accel
+//Version 1
 class MainActivity : AppCompatActivity() {
 
     private var cpt = 0
@@ -108,6 +108,7 @@ class MainActivity : AppCompatActivity() {
             vid.setVisibility(INVISIBLE)
         }
 
+        //Call at 15min
         Handler().postDelayed({
             //Do something after 100ms
             //Icon ring animation appear with ring song
@@ -115,8 +116,9 @@ class MainActivity : AppCompatActivity() {
             mediaPlayer?.start()
             animationButton.setVisibility(VISIBLE)
             enableButton.setVisibility(VISIBLE)
-        }, 5000)
+        }, 900000)
 
+        //Call at 30min
         Handler().postDelayed({
             //Do something after 100ms
             //Icon ring animation appear with ring song
@@ -124,8 +126,9 @@ class MainActivity : AppCompatActivity() {
             mediaPlayer?.start()
             animationButton.setVisibility(VISIBLE)
             enableButton.setVisibility(VISIBLE)
-        }, 30000)
+        }, 1800000)
 
+        //Call at 45min
         Handler().postDelayed({
             //Do something after 100ms
             //Icon ring animation appear with ring song
@@ -133,8 +136,9 @@ class MainActivity : AppCompatActivity() {
             mediaPlayer?.start()
             animationButton.setVisibility(VISIBLE)
             enableButton.setVisibility(VISIBLE)
-        }, 70000)
+        }, 2700000)
 
+        //Call at 55min
         Handler().postDelayed({
             //Do something after 100ms
             //Icon ring animation appear with ring song
@@ -142,7 +146,7 @@ class MainActivity : AppCompatActivity() {
             mediaPlayer?.start()
             animationButton.setVisibility(VISIBLE)
             enableButton.setVisibility(VISIBLE)
-        }, 90000)
+        }, 3300000)
 
         //My messages
         messagesButton.setOnClickListener {
