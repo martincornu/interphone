@@ -16,6 +16,9 @@ class MessagesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_messages)
 
+        // Hide the status bar.
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
+
         //video
         val vid = findViewById(R.id.videoView2) as VideoView
         val mediaController = MediaController(this)
