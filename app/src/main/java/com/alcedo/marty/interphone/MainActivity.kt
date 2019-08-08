@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
 
     private var counter = 0
     private var cpt = 0
+    private var hour = 8
     private var counterText : TextView? = null
     private var minuteUpdateReceiver : BroadcastReceiver? = null
 
@@ -166,12 +167,15 @@ class MainActivity : AppCompatActivity() {
         minuteUpdateReceiver = object : BroadcastReceiver() {
             override fun onReceive(contxt: Context?, intent: Intent?) {
                 counter++
-                if (counter < 10)
-                    counterText?.setText("08:0" + counter)
-                else if (counter >= 10 && counter < 60)
-                    counterText?.setText("08:" + counter)
-                else if (counter >= 60)
+                var text = "0" + hour + ":0" + counter
+                if (counter >= 10 && counter < 60) {
+                    text = "0" + hour + ":" + counter
+                } else if (counter >= 60) {
                     counter = 0
+                    hour++
+                    text = "0" + hour + ":00"
+                }
+                counterText?.setText(text)
             }
         }
         registerReceiver(minuteUpdateReceiver, intentFilter)
