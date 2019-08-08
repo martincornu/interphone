@@ -31,6 +31,7 @@ import android.widget.*
 class MainActivity : AppCompatActivity() {
 
     private var counter = 0
+    private var hasAnswer = false
     private var cpt = 0
     private var hour = 8
     private var counterText : TextView? = null
@@ -87,6 +88,7 @@ class MainActivity : AppCompatActivity() {
         enableButton.setOnStateChangeListener { active ->
 
             if (active) {
+                hasAnswer = true
                 animationButton.setVisibility(INVISIBLE)
                 enableButton.setVisibility(INVISIBLE)
                 mediaPlayer?.pause()
@@ -126,9 +128,13 @@ class MainActivity : AppCompatActivity() {
             //Do something after 100ms
             //Icon ring animation appear with ring song
             //Slider appear
-            mediaPlayer?.start()
-            animationButton.setVisibility(VISIBLE)
-            enableButton.setVisibility(VISIBLE)
+            if (hasAnswer) {
+                hasAnswer = false
+                mediaPlayer?.start()
+                animationButton.setVisibility(VISIBLE)
+                enableButton.setVisibility(VISIBLE)
+            }
+
         }, 1800000) //1800000
 
         //Call at 45min
@@ -136,9 +142,12 @@ class MainActivity : AppCompatActivity() {
             //Do something after 100ms
             //Icon ring animation appear with ring song
             //Slider appear
-            mediaPlayer?.start()
-            animationButton.setVisibility(VISIBLE)
-            enableButton.setVisibility(VISIBLE)
+            if (hasAnswer) {
+                hasAnswer = false
+                mediaPlayer?.start()
+                animationButton.setVisibility(VISIBLE)
+                enableButton.setVisibility(VISIBLE)
+            }
         }, 2700000) //2700000
 
         //Call at 55min
@@ -146,9 +155,12 @@ class MainActivity : AppCompatActivity() {
             //Do something after 100ms
             //Icon ring animation appear with ring song
             //Slider appear
-            mediaPlayer?.start()
-            animationButton.setVisibility(VISIBLE)
-            enableButton.setVisibility(VISIBLE)
+            if (hasAnswer) {
+                hasAnswer = false
+                mediaPlayer?.start()
+                animationButton.setVisibility(VISIBLE)
+                enableButton.setVisibility(VISIBLE)
+            }
         }, 3300000) //3300000
 
         //My messages
