@@ -172,9 +172,9 @@
             android:layout_height="wrap_content" app:srcCompat="@drawable/leftarrow"
             android:background="@null"
             android:id="@+id/backButton"
-            android:layout_marginTop="30dp"
-            app:layout_constraintTop_toTopOf="parent" android:layout_marginStart="30dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="30dp"/>
+            android:layout_marginTop="40dp"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginStart="70dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="70dp"/>
     <VideoView
             android:layout_width="0dp"
             android:layout_height="0dp" android:id="@+id/videoView2"
