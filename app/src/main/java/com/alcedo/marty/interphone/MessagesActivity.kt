@@ -37,7 +37,7 @@ class MessagesActivity : AppCompatActivity() {
         setContentView(R.layout.activity_messages)
 
         //Init
-        val cpt = getIntent().getExtras().getInt("MY_KEY")
+        val cpt = intent.getExtras().getInt("MY_KEY")
         val vid = findViewById(R.id.videoView2) as VideoView
         val image = findViewById(R.id.image) as ImageView
         val image2 = findViewById(R.id.image2) as ImageView

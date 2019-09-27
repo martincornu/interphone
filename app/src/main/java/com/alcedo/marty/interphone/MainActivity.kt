@@ -36,6 +36,7 @@ class MainActivity : AppCompatActivity() {
     private var hour = 8
     private var counterText : TextView? = null
     private var minuteUpdateReceiver : BroadcastReceiver? = null
+    private var mediaPlayer: MediaPlayer? = null
 
     private fun hideSystemUI() {
         // Enables regular immersive mode.
@@ -65,10 +66,6 @@ class MainActivity : AppCompatActivity() {
         cpt = 0
         counterText = findViewById(R.id.txt_time)
 
-        //audio
-        val mediaPlayer: MediaPlayer? = MediaPlayer.create(this, R.raw.ring)
-        mediaPlayer?.setLooping(true)
-
         //video
         val vid = findViewById(R.id.videoView) as VideoView
         vid.setMediaController(null)
@@ -79,19 +76,21 @@ class MainActivity : AppCompatActivity() {
 
         //Buttons
         val enableButton = findViewById(R.id.swipe_btn) as SwipeButton
-        enableButton.setVisibility(INVISIBLE)
+        enableButton?.setVisibility(INVISIBLE)
         val animationButton= findViewById(R.id.animation_view) as LottieAnimationView
         animationButton.setVisibility(INVISIBLE)
         val messagesButton = findViewById(R.id.imageBtn) as ImageButton
 
         //Calls
-        enableButton.setOnStateChangeListener { active ->
+        enableButton?.setOnStateChangeListener { active ->
 
             if (active) {
                 hasAnswer = true
                 animationButton.setVisibility(INVISIBLE)
-                enableButton.setVisibility(INVISIBLE)
-                mediaPlayer?.pause()
+                enableButton?.setVisibility(INVISIBLE)
+                if (mediaPlayer?.isPlaying() == true) {
+                    mediaPlayer?.pause()
+                }
 
                 when (cpt) {
                     0 -> path = "android.resource://com.alcedo.marty.interphone/"+R.raw.fetedetrop1
@@ -105,12 +104,15 @@ class MainActivity : AppCompatActivity() {
                 vid.setVideoURI(u)
                 vid.setVisibility(VISIBLE)
                 vid.start()
-                enableButton.toggleState()
+                enableButton?.toggleState()
             }
         }
 
         vid.setOnCompletionListener {
             vid.setVisibility(INVISIBLE)
+            if (!hasAnswer) {
+                mediaPlayer?.start()
+            }
         }
 
         //Call at 15min
@@ -120,7 +122,7 @@ class MainActivity : AppCompatActivity() {
             //Slider appear
             mediaPlayer?.start()
             animationButton.setVisibility(VISIBLE)
-            enableButton.setVisibility(VISIBLE)
+            enableButton?.setVisibility(VISIBLE)
         }, 900000) //900000
 
         //Call at 30min
@@ -130,9 +132,11 @@ class MainActivity : AppCompatActivity() {
             //Slider appear
             if (hasAnswer) {
                 hasAnswer = false
-                mediaPlayer?.start()
+                if (!vid.isShown()) {
+                    mediaPlayer?.start()
+                }
                 animationButton.setVisibility(VISIBLE)
-                enableButton.setVisibility(VISIBLE)
+                enableButton?.setVisibility(VISIBLE)
             }
 
         }, 1800000) //1800000
@@ -144,9 +148,11 @@ class MainActivity : AppCompatActivity() {
             //Slider appear
             if (hasAnswer) {
                 hasAnswer = false
-                mediaPlayer?.start()
+                if (!vid.isShown()) {
+                    mediaPlayer?.start()
+                }
                 animationButton.setVisibility(VISIBLE)
-                enableButton.setVisibility(VISIBLE)
+                enableButton?.setVisibility(VISIBLE)
             }
         }, 2700000) //2700000
 
@@ -157,9 +163,11 @@ class MainActivity : AppCompatActivity() {
             //Slider appear
             if (hasAnswer) {
                 hasAnswer = false
-                mediaPlayer?.start()
+                if (!vid.isShown()) {
+                    mediaPlayer?.start()
+                }
                 animationButton.setVisibility(VISIBLE)
-                enableButton.setVisibility(VISIBLE)
+                enableButton?.setVisibility(VISIBLE)
             }
         }, 3300000) //3300000
 
@@ -193,13 +201,26 @@ class MainActivity : AppCompatActivity() {
         registerReceiver(minuteUpdateReceiver, intentFilter)
     }
 
-    override fun onResume() {
-        super.onResume()
+    override fun onStart() {
+        super.onStart()
         startMinuteUpdater()
+        if (mediaPlayer == null) {
+            mediaPlayer = MediaPlayer.create(this, R.raw.ring)
+            mediaPlayer?.setLooping(false)
+            mediaPlayer?.start()
+            mediaPlayer?.pause()
+        }
     }
 
     override fun onPause() {
         super.onPause()
         unregisterReceiver(minuteUpdateReceiver)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        if (mediaPlayer != null) {
+            mediaPlayer?.pause()
+        }
     }
 }
