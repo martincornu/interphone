@@ -25,6 +25,7 @@ import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.BroadcastReceiver
 import android.content.IntentFilter
+import android.content.pm.PackageManager
 import android.widget.*
 
 //Version 2
@@ -76,18 +77,18 @@ class MainActivity : AppCompatActivity() {
 
         //Buttons
         val enableButton = findViewById(R.id.swipe_btn) as SwipeButton
-        enableButton?.setVisibility(INVISIBLE)
+        enableButton.setVisibility(INVISIBLE)
         val animationButton= findViewById(R.id.animation_view) as LottieAnimationView
         animationButton.setVisibility(INVISIBLE)
         val messagesButton = findViewById(R.id.imageBtn) as ImageButton
 
         //Calls
-        enableButton?.setOnStateChangeListener { active ->
+        enableButton.setOnStateChangeListener { active ->
 
             if (active) {
                 hasAnswer = true
                 animationButton.setVisibility(INVISIBLE)
-                enableButton?.setVisibility(INVISIBLE)
+                enableButton.setVisibility(INVISIBLE)
                 if (mediaPlayer?.isPlaying() == true) {
                     mediaPlayer?.pause()
                 }
@@ -104,7 +105,7 @@ class MainActivity : AppCompatActivity() {
                 vid.setVideoURI(u)
                 vid.setVisibility(VISIBLE)
                 vid.start()
-                enableButton?.toggleState()
+                enableButton.toggleState()
             }
         }
 
@@ -122,7 +123,7 @@ class MainActivity : AppCompatActivity() {
             //Slider appear
             mediaPlayer?.start()
             animationButton.setVisibility(VISIBLE)
-            enableButton?.setVisibility(VISIBLE)
+            enableButton.setVisibility(VISIBLE)
         }, 900000) //900000
 
         //Call at 30min
@@ -136,7 +137,7 @@ class MainActivity : AppCompatActivity() {
                     mediaPlayer?.start()
                 }
                 animationButton.setVisibility(VISIBLE)
-                enableButton?.setVisibility(VISIBLE)
+                enableButton.setVisibility(VISIBLE)
             }
 
         }, 1800000) //1800000
@@ -152,7 +153,7 @@ class MainActivity : AppCompatActivity() {
                     mediaPlayer?.start()
                 }
                 animationButton.setVisibility(VISIBLE)
-                enableButton?.setVisibility(VISIBLE)
+                enableButton.setVisibility(VISIBLE)
             }
         }, 2700000) //2700000
 
@@ -167,7 +168,7 @@ class MainActivity : AppCompatActivity() {
                     mediaPlayer?.start()
                 }
                 animationButton.setVisibility(VISIBLE)
-                enableButton?.setVisibility(VISIBLE)
+                enableButton.setVisibility(VISIBLE)
             }
         }, 3300000) //3300000
 
